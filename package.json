@@ -1,0 +1,27 @@
+{
+  "name": "rpi-nodejs-hometest1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "stop": "pkill --signal SIGINT myApp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarekJavurek/rpi-nodejs-hometest1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarekJavurek/rpi-nodejs-hometest1/issues"
+  },
+  "homepage": "https://github.com/MarekJavurek/rpi-nodejs-hometest1#readme",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}
