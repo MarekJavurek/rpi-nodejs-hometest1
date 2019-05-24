@@ -3,6 +3,7 @@
 #if found pull them down, and then rebuild and restart 
 #We run the script with nohup so it executes as a background process: $nohup ./runscript
 
+echo RUNSCRIPT started
 while true
 do
 
@@ -21,5 +22,7 @@ if [ $LOCAL != $REMOTE ]; then
     npm install;
     forever start -m 1 -c "npm run start:prod" ~/rpi-nodejs-hometest1;
 fi
+echo RUNSCRIPT sleep 5 sec
 sleep 5
 done
+echo RUNSCRIPT ended
