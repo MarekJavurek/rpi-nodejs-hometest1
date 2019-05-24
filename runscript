@@ -1,7 +1,7 @@
 #!/bin/sh
 #This is a simple bash script that will poll github for changes to your repo,
 #if found pull them down, and then rebuild and restart 
-#We run the script with nohup so it executes as a background process: $nohup ./update-jekyll
+#We run the script with nohup so it executes as a background process: $nohup ./runscript
 
 while true
 do
@@ -15,12 +15,15 @@ REMOTE=$(git rev-parse @{u});
 
 #if our local revision id doesn't match the remote, we will need to pull the changes
 if [ $LOCAL != $REMOTE ]; then
-    #pull and merge changes
-        git fetch --all;
+
+    git fetch --all;
+
 	git reset --hard origin/master;
 	
 	npm run stop;
+
     npm i;
+
     forever start app.js;
 fi
 sleep 5
