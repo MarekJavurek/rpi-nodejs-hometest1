@@ -1,8 +1,20 @@
 const express = require("express");
 const app = express();
-const port = 80;
 
-process.title = "myApp";
+const args = process.argv
+  .slice(2)
+  .map(arg => arg.split("="))
+  .reduce((args, [value, key]) => {
+    args[value] = key;
+    return args;
+  }, {});
+
+let port = 8080;
+if (args.env === "PROD") {
+  port = 80;
+} else {
+  port = 8080;
+}
 
 app.get("/", (req, res) => res.send("Hello World! 5"));
 
