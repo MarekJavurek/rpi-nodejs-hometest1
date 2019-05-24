@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "start": "node app.js env=DEV",
-    "start:prod": "node app.js env=PROD"
+    "start": "node app.js port=8080",
+    "start:prod": "node app.js port=8080"
   },
   "repository": {
     "type": "git",

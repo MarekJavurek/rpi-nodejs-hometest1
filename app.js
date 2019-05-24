@@ -9,12 +9,7 @@ const args = process.argv
     return args;
   }, {});
 
-let port = 8080;
-if (args.env === "PROD") {
-  port = 80;
-} else {
-  port = 8080;
-}
+const port = args.port;
 
 app.get("/", (req, res) => res.send("Hello World! 5"));
 
