@@ -26,3 +26,6 @@ echo RUNSCRIPT sleep 5 sec
 sleep 5
 done
 echo RUNSCRIPT ended
+
+# @reboot /usr/bin/sudo -u pi -H /usr/local/bin/forever start -c /bin/bash ~/rpi-nodejs-hometest1/runscript
+# sudo crontab -e
