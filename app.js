@@ -4,7 +4,6 @@ const express = require("express");
 const app = express();
 const port = "8080";
 var sensor = require("node-dht-sensor").promises;
-sensor.setMaxTries(10);
 
 /* var winston = require("winston");
 
@@ -17,9 +16,10 @@ app.get("/", (req, res) => {
   res.send(`RPI ZERO W app listening on port ${port}!`);
 });
 
-app.get("/sync", (req, res) => {
-  var readout = sensor.readSync(22, 2);
-  res.send("DHT22: " + readout);
+app.get("/sync/:gpioPin", (req, res) => {
+  const { gpioPin } = req.params;
+  var readout = sensor.readSync(22, gpioPin);
+  res.send("DHT22: " + JSON.stringify(readout));
 });
 
 app.get("/get/:gpioPin", async (req, res) => {
