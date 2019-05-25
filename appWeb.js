@@ -12,7 +12,7 @@ app.get("/", async (req, res) => {
   const tempservice = await TemperatureHumidityService();
   log.log("debug", tempservice);
   if (tempservice) {
-    res.send(tempservice);
+    res.send(JSON.stringify(tempservice));
   } else {
     res.send("Failed to read sensor data");
   }
