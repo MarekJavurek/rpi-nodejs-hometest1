@@ -1,4 +1,4 @@
-const log = require("simple-node-logger").createSimpleLogger("RPI-app.log");
+// const log = require("simple-node-logger").createSimpleLogger("RPI-app.log");
 
 const express = require("express");
 const app = express();
@@ -16,13 +16,13 @@ app.get("/", (req, res) => {
   res.send(`RPI ZERO W app listening on port ${port}!`);
 });
 
-app.get("/sync/:gpioPin", (req, res) => {
+app.get("/readSync/:gpioPin", (req, res) => {
   const { gpioPin } = req.params;
   var readout = sensor.readSync(22, gpioPin);
-  res.send("DHT22: " + JSON.stringify(readout));
+  res.send("Sensor DHT22: " + JSON.stringify(readout));
 });
 
-app.get("/get/:gpioPin", async (req, res) => {
+app.get("/readAsync/:gpioPin", async (req, res) => {
   try {
     const { gpioPin } = req.params;
     const { temperature, humidity } = await sensor.read(22, gpioPin);
