@@ -1,9 +1,15 @@
 const express = require("express");
 const app = express();
 const port = "8080";
-var sensor = require("node-dht-sensor").promises;
+var sensor = require("node-dht-sensor");
+//sensor.setMaxTries(10);
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
+  var readout = sensor.readSync(22, 2);
+  res.send("DHT22: " + readout);
+});
+
+app.get("/async", async (req, res) => {
   try {
     const { temperature, humidity } = await sensor.read(22, 2);
     res.send(
