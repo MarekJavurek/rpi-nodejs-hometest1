@@ -1,3 +1,5 @@
+const log = require("simple-node-logger").createSimpleLogger("RPI-app.log");
+
 const express = require("express");
 const app = express();
 const port = "8080";

@@ -21,7 +21,8 @@
   "homepage": "https://github.com/MarekJavurek/rpi-nodejs-hometest1#readme",
   "dependencies": {
     "express": "^4.17.0",
-    "winston": "^3.2.1",
-    "node-dht-sensor": "^0.3.0"
+    "node-dht-sensor": "^0.3.0",
+    "simple-node-logger": "^18.12.22",
+    "winston": "^3.2.1"
   }
 }
