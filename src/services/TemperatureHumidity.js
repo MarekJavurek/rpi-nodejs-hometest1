@@ -6,10 +6,10 @@ var service = async (gpioPin = 2) => {
 
     return (
       "temp: " +
-      temperature.toFixed(1) +
+      temperature.toFixed(2) +
       "°C, " +
       "humidity: " +
-      humidity.toFixed(1) +
+      humidity.toFixed(2) +
       "%"
     );
   } catch (err) {

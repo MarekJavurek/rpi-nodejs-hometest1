@@ -4,11 +4,11 @@ const port = "8080";
 const TemperatureHumidityService = require("./src/services/TemperatureHumidity");
 const log = require("./src/Logger");
 
-app.get("/", (req, res) => {
+app.get("/info", (req, res) => {
   res.send(`RPI ZERO W app listening on port ${port}!`);
 });
 
-app.get("/readAsync/:gpioPin*?", async (req, res) => {
+app.get("/", async (req, res) => {
   const tempservice = await TemperatureHumidityService();
   log.log("debug", tempservice);
   if (tempservice) {
