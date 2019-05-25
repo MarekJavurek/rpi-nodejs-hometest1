@@ -1,7 +1,7 @@
 var sensor = require("node-dht-sensor").promises;
 
 class service {
-  getData = async (gpioPin = 2) => {
+  async getData(gpioPin = 2) {
     try {
       const { temperature, humidity } = await sensor.read(22, gpioPin);
 
@@ -12,7 +12,7 @@ class service {
     } catch (err) {
       return false;
     }
-  };
+  }
 }
 
 /* 
