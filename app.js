@@ -12,14 +12,19 @@ var logger = new winston.Logger({
   transports: [new winston.transports.File({ filename: "error.log" })]
 });
 
+app.get("", (req, res) => {
+  res.send(`RPI ZERO W app listening on port ${port}!`);
+});
+
 app.get("/sync", (req, res) => {
   var readout = sensor.readSync(22, 2);
   res.send("DHT22: " + readout);
 });
 
-app.get("/", async (req, res) => {
+app.get("/get/:gpioPin", async (req, res) => {
   try {
-    const { temperature, humidity } = await sensor.read(22, 2);
+    const { gpioPin } = req.params;
+    const { temperature, humidity } = await sensor.read(22, gpioPin);
 
     logger.log("error", "temperature:  %s", temperature);
     logger.log("error", "humidity:  %s", humidity);
