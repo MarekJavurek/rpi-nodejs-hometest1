@@ -1,15 +1,6 @@
 const express = require("express");
 const app = express();
-
-const args = process.argv
-  .slice(2)
-  .map(arg => arg.split("="))
-  .reduce((args, [value, key]) => {
-    args[value] = key;
-    return args;
-  }, {});
-
-const port = args.port;
+const port = "8185";
 
 app.get("/", (req, res) => res.send("Hello World! 5"));
 

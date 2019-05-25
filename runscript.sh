@@ -16,11 +16,11 @@ REMOTE=$(git rev-parse @{u});
 
 #if our local revision id doesn't match the remote, we will need to pull the changes
 if [ $LOCAL != $REMOTE ]; then
-    /usr/bin/sudo -u pi -H /usr/local/bin/forever stopall;
+    pm2 stop all;
     git fetch --all;
 	git reset --hard origin/master;
     npm install;
-    /usr/bin/sudo -u pi -H /usr/local/bin/forever start -c "npm start" ~/rpi-nodejs-hometest1;
+    pm2 start app.js;
 fi
 echo RUNSCRIPT sleep 5 sec
 sleep 5
