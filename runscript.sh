@@ -17,7 +17,7 @@ if [ $LOCAL != $REMOTE ]; then
     git fetch --all;
 	git reset --hard origin/master;
     npm install;
-    pm2 start app.js --name "rpi";
+    pm2 start appWeb.js --name "rpi";
 fi
 echo RUNSCRIPT sleep 5 sec
 sleep 5

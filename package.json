@@ -2,12 +2,12 @@
   "name": "rpi-nodejs-hometest1",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "appWeb.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node appWeb.js"
   },
   "repository": {
     "type": "git",
