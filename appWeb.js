@@ -9,14 +9,18 @@ app.get("/info", (req, res) => {
 });
 
 app.get("/", async (req, res) => {
-  const tempservice = TemperatureHumidityService();
-  const data = await tempservice.getData();
+  try {
+    const tempservice = new TemperatureHumidityService();
+    const data = await tempservice.getData();
 
-  log.log("debug", data);
-  if (data) {
-    res.send(JSON.stringify(data));
-  } else {
-    res.send("Failed to read sensor data");
+    log.log("debug", data);
+    if (data) {
+      res.send(JSON.stringify(data));
+    } else {
+      res.send("Failed to read sensor data");
+    }
+  } catch (err) {
+    log.log("error", err);
   }
 });
 
