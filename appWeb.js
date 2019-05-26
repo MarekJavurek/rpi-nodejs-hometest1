@@ -9,8 +9,8 @@ app.get("/info", (req, res) => {
 });
 
 app.get("/", async (req, res) => {
-  const tempservice = await TemperatureHumidityService();
-  const data = tempservice.getData();
+  const tempservice = TemperatureHumidityService();
+  const data = await tempservice.getData();
 
   log.log("debug", data);
   if (data) {
