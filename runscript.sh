@@ -1,6 +1,9 @@
 #!/bin/sh
 
 echo RUNSCRIPT started
+
+pm2 start appWeb.js --name "rpi";
+
 while true
 do
 
