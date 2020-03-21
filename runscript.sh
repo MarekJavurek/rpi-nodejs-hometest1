@@ -2,13 +2,12 @@
 
 echo RUNSCRIPT started
 
+#move into your git repo 
+cd ~/rpi-nodejs-hometest1;
 pm2 start appWeb.js --name "rpi";
 
 while true
 do
-
-#move into your git repo 
-cd ~/rpi-nodejs-hometest1;
 
 git fetch;
 LOCAL=$(git rev-parse HEAD);
