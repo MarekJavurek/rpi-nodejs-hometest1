@@ -23,6 +23,7 @@ if [ $LOCAL != $REMOTE ]; then
 	pm2 start appWeb.js --name "rpi";
 else
 	if [ "$(pm2 id rpi)" = "[]" ]; then
+		echo init starting app;
 		pm2 start appWeb.js --name "rpi";
 	fi
 fi
