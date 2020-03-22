@@ -16,16 +16,16 @@ REMOTE=$(git rev-parse @{u});
 #if our local revision id doesn't match the remote, we will need to pull the changes
 if [ $LOCAL != $REMOTE ]; then
 	echo GIT fetching;
-	pm2 delete rpi;
+	pm2 stop rpi;
 	git fetch --all;
 	git reset --hard origin/master;
 	npm install;
 	pm2 start appWeb.js --name "rpi";
-else
-	if [ "$(pm2 id rpi)" = "[]" ]; then
-		echo init starting app;
-		pm2 start appWeb.js --name "rpi";
-	fi
+fi
+
+if [ "$(pm2 id rpi)" = "[]" ]; then
+	echo init starting app;
+	pm2 start appWeb.js --name "rpi";
 fi
 
 echo RUNSCRIPT sleep 5 sec
