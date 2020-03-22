@@ -16,7 +16,7 @@ REMOTE=$(git rev-parse @{u});
 #if our local revision id doesn't match the remote, we will need to pull the changes
 if [ $LOCAL != $REMOTE ]; then
 	echo GIT fetching;
-	pm2 stop rpi;
+	pm2 delete rpi;
 	git fetch --all;
 	git reset --hard origin/master;
 	npm install;
