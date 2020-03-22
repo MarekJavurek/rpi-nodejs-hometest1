@@ -5,7 +5,6 @@ echo RUNSCRIPT started
 #move into your git repo 
 cd ~/rpi-nodejs-hometest1;
 yarn;
-pm2 start appWeb.js --name "rpi";
 
 while true
 do
