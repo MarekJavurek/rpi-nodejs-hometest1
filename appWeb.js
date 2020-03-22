@@ -17,7 +17,7 @@ app.get("/", async (req, res) => {
     if (data) {
       res.send(JSON.stringify(data));
     } else {
-      res.send("Failed to read sensor data");
+      res.send("Failed to read DHT sensor data");
     }
   } catch (err) {
     log.log("error", err);
