@@ -22,7 +22,7 @@ if [ $LOCAL != $REMOTE ]; then
 	npm install;
 	pm2 start appWeb.js --name "rpi";
 else
-	if [ "$(pm2 id rpi) "= "[]" ]; then
+	if [ "$(pm2 id rpi)" = "[]" ]; then
 		pm2 start appWeb.js --name "rpi";
 	fi
 fi
